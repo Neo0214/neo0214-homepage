@@ -1,28 +1,45 @@
 import { createRouter, createWebHistory } from 'vue-router';
-import Home from './components/Home.vue'; // 你的首页组件
-import Blogs from './components/Blogs.vue'; // 你的博客组件
-import Signup from './components/Signup.vue'; // 你的注册组件
 
 const routes = [
   {
     path: '/',
     name: 'Home',
-    component: Home
+    component: () => import('./components/routers/Home.vue')
   },
   {
-    path:'/Home',
-    name:'Home',
-    component:Home
+    path: '/Home',
+    name: 'Home',
+    component: () => import('./components/routers/Home.vue')
   },
   {
-    path:'/Blogs',
-    name:'Blogs',
-    component:Blogs
+    path: '/Blogs',
+    name: 'Blogs',
+    component: () => import('./components/routers/Blogs.vue')
   },
   {
-    path:'/Signup',
-    name:'Signup',
-    component:Signup
+    path: '/Blogs/blogDetail',
+    name: 'BlogDetail',
+    component: () => import('./components/routers/BlogDetail.vue')
+  },
+  {
+    path: '/Blogs/blogEdit',
+    name: 'BlogEdit',
+    component: () => import('./components/routers/BlogEdit.vue')
+  },
+  {
+    path: '/Labs',
+    name: 'Labs',
+    component: () => import('./components/routers/Labs.vue')
+  },
+  {
+    path: '/Labs/BattleField',
+    name: 'BattleField',
+    component: () => import('./components/routers/BattleField.vue')
+  },
+  {
+    path:'/Labs/Map',
+    name:'Map',
+    component:()=>import('./components/routers/Map.vue')
   }
 ];
 
